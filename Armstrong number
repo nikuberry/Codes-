@@ -1,0 +1,34 @@
+
+import java.util.Scanner;
+
+class Count {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = sc.nextInt();
+        int original = number;
+        int count = getCount(number);
+        int sum = 0;
+        int temp = number;
+        while (temp != 0) {
+            int digit = temp % 10;
+            sum = sum + (int) Math.pow(digit, count);
+            temp = temp / 10;
+        }
+        System.out.println(sum);
+
+        if (sum == original)
+            System.out.println("It is an Armstrong number");
+        else
+            System.out.println("It is not an Armstrong number");
+    }
+    public static int getCount(int number) {
+        int count = 0;
+
+        while (number != 0) {
+            number = number / 10;
+            count++;
+        }
+        return count;
+    }
+}
